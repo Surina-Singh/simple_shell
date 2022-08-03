@@ -40,7 +40,6 @@ Your code will be compiled this way:
 
 ## Testing
 Your shell should work like this in interactive mode:
-
 ```
 $ ./hsh
 ($) /bin/ls
@@ -49,9 +48,7 @@ hsh main.c shell.c
 ($) exit
 $
 ```
-
 But also in non-interactive mode:
-
 ```
 $ echo "/bin/ls" | ./hsh
 hsh main.c shell.c test_ls_2
@@ -65,7 +62,6 @@ hsh main.c shell.c test_ls_2
 hsh main.c shell.c test_ls_2
 $
 ```
-
 ---
 
 # Tasks 
