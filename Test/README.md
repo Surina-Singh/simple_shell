@@ -40,17 +40,17 @@ Your code will be compiled this way:
 
 ## Testing
 Your shell should work like this in interactive mode:
-
-```$ ./hsh
+```
+$ ./hsh
 ($) /bin/ls
 hsh main.c shell.c
 ($)
 ($) exit
-$```
-
+$
+```
 But also in non-interactive mode:
-
-```$ echo "/bin/ls" | ./hsh
+```
+$ echo "/bin/ls" | ./hsh
 hsh main.c shell.c test_ls_2
 $
 $ cat test_ls_2
@@ -60,8 +60,8 @@ $
 $ cat test_ls_2 | ./hsh
 hsh main.c shell.c test_ls_2
 hsh main.c shell.c test_ls_2
-$```
-
+$
+```
 ---
 
 # Tasks 
