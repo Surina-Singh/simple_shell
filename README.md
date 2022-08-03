@@ -16,6 +16,7 @@ This is a simple UNIX command interpreter that replicates the **sh** program on 
 - Compile: `gcc -Wall -Werror -Wextra -pedantic *.c -o hsh`
 - Run the shell in interactive mode: `./hsh`
 - Or run the shell in non-interactive mode: example `echo "Hello world!" | ./hsh`
+- To exit: press `Ctrl-D` or enter `exit`
 
 ---
 
