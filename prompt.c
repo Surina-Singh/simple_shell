@@ -10,7 +10,7 @@ void ctrl_c(int n)
 }
 
 /**
- * built_in - handles builtins
+ * built_in - handles builtins (exit, env, cd)
  * @token: user's typed command
  * @env: environmental variable
  * @num: take in nth user command typed to write error message

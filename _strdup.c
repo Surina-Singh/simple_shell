@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * _strdup - returns a pointer to a newly allocated space in memory,
  * which contains a copy of the string given as a parameter
@@ -19,6 +18,7 @@ char *_strdup(char *str)
 	len++;
 
 	duplicate_str = malloc(sizeof(char) * len);
+	if (duplicate_str == NULL)
 		return (NULL);
 
 	i = 0;

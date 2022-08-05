@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * c_strcat - concatenate two strings ignoring the first character ("~" in cd)
+ * c_strcat - concatenate two strings ignoring the first character
  * @dest: string to be appended to
  * @src: string to append
  * Return: concatenated string
@@ -87,7 +87,6 @@ void cd_only(list_t *env, char *current)
 	free(current);
 	free(home);
 }
-
 /**
  * cd_execute - executes the cd
  * @env: bring in environmental linked list to update PATH and OLDPWD
