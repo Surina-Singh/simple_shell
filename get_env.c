@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * c_strdup - custom string duplication; excludes beginning bytes
  * @str: string to duplicate
