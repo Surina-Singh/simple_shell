@@ -4,20 +4,29 @@
 
 **Authors:** *Surina Singh and Rebekah Cupido*
 
-## Description
+## Introduction
 
-Write a simple UNIX command interpreter.
+This is a simple UNIX command interpreter that replicates the **sh** program on Linux. Once installed our shell will display a prompt and wait for the user to type a command that always ends with a new line. The prompt will always be displayed after a command has been executed in order to make user experience easy. If the command cannot be executed, print error will be displayed in the terminal and the prompt will be displayed again.
+
+---
+
+## Usage
+- Clone the repository: `git clone https://github.com/Surina-Singh/simple_shell.git`
+- Change directories into the repository: `cd simple_shell`
+- Compile: `gcc -Wall -Werror -Wextra -pedantic *.c -o hsh`
+- Run the shell in interactive mode: `./hsh`
+- Or run the shell in non-interactive mode: example `echo "Hello world!" | ./hsh`
+- To exit: press `Ctrl-D` or enter `exit`
 
 ---
 
 ## Resources
 
-- [Everything you need to know to start coding your own shell](https://https://alx-intranet.hbtn.io/concepts/64)
-- [Approaching a Project](https://https://alx-intranet.hbtn.io/concepts/350)
 - [Unix shell](https://https://en.wikipedia.org/wiki/Unix_shell)
 - [Thompson shell](https://https://en.wikipedia.org/wiki/Thompson_shell)
 - [Ken Thompson](https://https://en.wikipedia.org/wiki/Ken_Thompson)
 
+---
 
 ## General Requirements
 * Allowed editors: `vi`, `vim`, `emacs`
@@ -34,12 +43,8 @@ Write a simple UNIX command interpreter.
 
 ---
 
-## Compilation
-Your code will be compiled this way:
-```gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh```
-
 ## Testing
-Your shell should work like this in interactive mode:
+The shell will function like this in interactive mode:
 ```
 $ ./hsh
 ($) /bin/ls
