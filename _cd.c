@@ -79,7 +79,6 @@ void cd_only(list_t *env, char *current)
 	home = get_env("HOME", env);
 	c_setenv(&env, "OLDPWD", current);
 	free(current);
-
 	if (access(home, F_OK) == 0)
 		chdir(home);
 	current = NULL;
@@ -88,6 +87,7 @@ void cd_only(list_t *env, char *current)
 	free(current);
 	free(home);
 }
+
 /**
  * cd_execute - executes the cd
  * @env: bring in environmental linked list to update PATH and OLDPWD

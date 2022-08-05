@@ -5,8 +5,7 @@
  */
 void free_double_ptr(char **str)
 {
-	int i;
-	i = 0;
+	int i = 0;
 
 	while (str[i] != NULL)
 	{
