@@ -20,14 +20,14 @@ simple shell can be invoked both interactively and non-interactively.
 .SS Command Execution
 After receiving a command that has been split into words and resullts in a simple command and an optional list of arguments, the following is done:
 .sp
-.I Command name contains no slashes: 
-Shell attempts to locate it. 
-(a) Shell function name exisits = function is invoked. 
+.I Command name contains no slashes:
+Shell attempts to locate it.
+(a) Shell function name exisits = function is invoked.
 (b) Shell function name does not exisits: shell searches for it in the list of shell builtins and if found that builtin is invoked.
 .sp
-.I Name is neither a shell function/builtin and contains no slashes: 
+.I Name is neither a shell function/builtin and contains no slashes:
 Simple shell searches each for a directory containing an executable file by that name
-(a) each element of the environmental variable PATH is seached. 
+(a) each element of the environmental variable PATH is seached.
 (b) Usuccessful search: simple shell prints an error message "Error: File or description not found."
 .sp
 .SS Sample Functions

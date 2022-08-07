@@ -69,7 +69,7 @@ $
 ```
 ---
 
-# Tasks 
+# Tasks
 
 ## Mandatory Tasks
 ### 0. Betty would be proud
@@ -80,7 +80,7 @@ $
 ### 5. Simple shell 1.0
 
 ## Advanced Tasks
-### 
+###
 
 ## Manual Page
 ### In order to access the manual page run the following command: man ./man_3_printf.
