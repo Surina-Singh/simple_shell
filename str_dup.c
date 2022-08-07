@@ -1,11 +1,11 @@
 #include "shell.h"
 /**
- * _strdup - returns a pointer to a newly allocated space in memory,
+ * str_dup - returns a pointer to a newly allocated space in memory,
  * which contains a copy of the string given as a parameter
  * @str: string to duplicate
  * Return: pointer to duplicated string in allocated memory
  */
-char *_strdup(char *str)
+char *str_dup(char *str)
 {
 	char *duplicate_str;
 	int i, len = 0;

@@ -112,7 +112,7 @@ int cd_execute(list_t *env, char *current, char *dir, char *str, int num)
 	}
 	else
 	{
-		cant_cd_to(str, num, env);
+		cantcd_cmd_to(str, num, env);
 		free(current);
 		i = 2;
 	}
@@ -120,13 +120,13 @@ int cd_execute(list_t *env, char *current, char *dir, char *str, int num)
 }
 
 /**
- * _cd - change directory
+ * cd_cmd - change directory
  * @str: user's typed in command
  * @env: enviromental linked list to retrieve HOME and OLDPWD paths
  * @num: nth user command, to be used at error message
  * Return: 0 if success 2 if failed
  */
-int _cd(char **str, list_t *env, int num)
+int cd_cmd(char **str, list_t *env, int num)
 {
 	char *current = NULL, *dir = NULL;
 	int exit_stat = 0;

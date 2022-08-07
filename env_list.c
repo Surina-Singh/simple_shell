@@ -1,10 +1,10 @@
 #include "shell.h"
 /**
- * env_linked_list - creates a linked list from environmental variables
+ * env_list - creates a linked list from environmental variables
  * @env: environmental variables
  * Return: linked list
  */
-list_t *env_linked_list(char **env)
+list_t *env_list(char **env)
 {
 	list_t *head;
 	int i = 0;

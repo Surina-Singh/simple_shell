@@ -12,13 +12,13 @@ void c_exit(char **str, list_t *env)
 }
 
 /**
- * _execve - execute command user typed into shell
+ * execve_cmd - execute command user typed into shell
  * @s: command user typed
  * @env: environmental variable
  * @num: nth user command; to be used in error message
  * Return: 0 on success
  */
-int _execve(char **s, list_t *env, int num)
+int execve_cmd(char **s, list_t *env, int num)
 {
 	char *holder;
 	int status = 0, t = 0;

@@ -1,10 +1,10 @@
 #include "shell.h"
 /**
- * get_line - stores into malloced buffer the user's command into shell
+ * get_buffer - stores into malloced buffer the user's command into shell
  * @str: buffer
  * Return: number of characters read
  */
-size_t get_line(char **str)
+size_t get_buffer(char **str)
 {
 	ssize_t i = 0, size = 0, t = 0, t2 = 0, n = 0;
 	char buff[1024];

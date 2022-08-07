@@ -18,11 +18,11 @@ int numlen(int n)
 }
 
 /**
- * int_to_string - turns an int into a string
+ * int2str - turns an int into a string
  * @number: int
  * Return: returns the int as a string. returns NULL if failed
  */
-char *int_to_string(int number)
+char *int2str(int number)
 {
 	int digits, tens, i = 0, t = 0, x;
 	char *res;

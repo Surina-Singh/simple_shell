@@ -1,11 +1,11 @@
 #include "shell.h"
 /**
- * _strcat - concatenate two strings
+ * str_cat - concatenate two strings
  * @dest: string to be appended to
  * @src: string to append
  * Return: concatenated string
  */
-char *_strcat(char *dest, char *src)
+char *str_cat(char *dest, char *src)
 {
 		int len = 0;
 		int len2 = 0;

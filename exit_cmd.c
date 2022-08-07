@@ -21,14 +21,14 @@ int c_atoi(char *s)
 }
 
 /**
- * __exit - frees user input and then exits main program with a value
+ * exit_cmd - frees user input and then exits main program with a value
  * @str: user's command into shell
  * @env: bring in environmental variable to free at error
  * @num: bring in nth user command line input to print in error message
  * @command: bring in command to free
  * Return: 0 if success 2 if fail
  */
-int __exit(char **str, list_t *env, int num, char **command)
+int exit_cmd(char **str, list_t *env, int num, char **command)
 {
 	int e_value = 0;
 
