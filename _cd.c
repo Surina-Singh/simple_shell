@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * c_strcat - concatenate two strings ignoring the first character ("~" in cd)
+ * c_strcat - concatenate two strings ignoring the first character
  * @dest: string to be appended to
  * @src: string to append
  * Return: concatenated string
@@ -79,7 +79,6 @@ void cd_only(list_t *env, char *current)
 	home = get_env("HOME", env);
 	c_setenv(&env, "OLDPWD", current);
 	free(current);
-
 	if (access(home, F_OK) == 0)
 		chdir(home);
 	current = NULL;

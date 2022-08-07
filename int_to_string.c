@@ -16,6 +16,7 @@ int numlen(int n)
 	}
 	return (count);
 }
+
 /**
  * int_to_string - turns an int into a string
  * @number: int

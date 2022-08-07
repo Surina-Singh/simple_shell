@@ -54,7 +54,6 @@ int _execve(char **s, list_t *env, int num)
 		{
 			wait(&status);
 			free_double_ptr(s);
-
 			if (t == 0)
 				free(holder);
 		}

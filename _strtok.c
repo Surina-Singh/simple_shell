@@ -22,7 +22,7 @@ int t_strlen(char *str, int pos, char delm)
  * t_size - returns number of delim ignoring continuous delim
  * @str: user's command typed into shell
  * @delm: delimeter
- * Return: number of delims
+ * Return: number of delims so that
  */
 int t_size(char *str, char delm)
 {
@@ -68,7 +68,9 @@ char **_str_tok(char *str, char *delm)
 	char **toks = NULL, d_ch;
 
 	d_ch = delm[0];
+
 	str = ignore_delm(str, d_ch);
+
 	buffsize = t_size(str, d_ch);
 	toks = malloc(sizeof(char *) * (buffsize + 2));
 	if (toks == NULL)

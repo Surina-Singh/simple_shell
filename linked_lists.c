@@ -46,7 +46,6 @@ list_t *add_end_node(list_t **head, char *str)
 
 	if (head == NULL || str == NULL)
 		return (NULL);
-
 	new = malloc(sizeof(list_t));
 	if (new == NULL)
 		return (NULL);

@@ -27,7 +27,7 @@ int find_env(list_t *env, char *str)
 /**
  * _unsetenv - remove node in environmental linked list
  * @env: linked list
- * @str: user's typed in command (e.g. "unsetenv MAIL")
+ * @str: user's typed in command
  * Return: 0 on success
  */
 int _unsetenv(list_t **env, char **str)
@@ -36,7 +36,7 @@ int _unsetenv(list_t **env, char **str)
 
 	if (str[1] == NULL)
 	{
-		write(STDOUT_FILENO, "Insufficient number of arguments\n", 18);
+		write(STDOUT_FILENO, "Too few arguments\n", 18);
 		free_double_ptr(str);
 		return (-1);
 	}
@@ -44,13 +44,13 @@ int _unsetenv(list_t **env, char **str)
 	free_double_ptr(str);
 	if (index == -1)
 	{
-		write(STDOUT_FILENO, "Cannot be find\n", 12);
+		write(STDOUT_FILENO, "Cannot find\n", 12);
 		return (-1);
 	}
 	j = delete_nodeint_at_index(env, index);
 	if (j == -1)
 	{
-		write(STDOUT_FILENO, "Cannot be find\n", 12);
+		write(STDOUT_FILENO, "Cannot find\n", 12);
 		return (-1);
 	}
 	return (0);
@@ -70,7 +70,7 @@ int _setenv(list_t **env, char **str)
 
 	if (str[1] == NULL || str[2] == NULL)
 	{
-		write(STDOUT_FILENO, "Insufficient number of arguments\n", 18);
+		write(STDOUT_FILENO, "Too few arguments\n", 18);
 		free_double_ptr(str);
 		return (-1);
 	}
@@ -93,7 +93,6 @@ int _setenv(list_t **env, char **str)
 		free(holder->var);
 		holder->var = _strdup(cat);
 	}
-
 	free(cat);
 	free_double_ptr(str);
 	return (0);

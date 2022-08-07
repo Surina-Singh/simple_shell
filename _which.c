@@ -25,6 +25,7 @@ char *_which(char *str, list_t *env)
 		cat = _strcat(cat, str);
 		if (access(cat, F_OK) == 0)
 		{
+			
 			free_double_ptr(toks);
 			return (cat);
 		}
