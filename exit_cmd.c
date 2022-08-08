@@ -38,12 +38,12 @@ int exit_cmd(char **str, list_t *env, int num, char **command)
 	if (e_value == -1)
 	{
 		illegal_number(str[1], num, env);
-		free_pointerx2(str);
+		free_double_ptr(str);
 		return (2);
 	}
-	free_pointerx2(str);
+	free_double_ptr(str);
 	free_linked_list(env);
 	if (command != NULL)
-		free_pointerx2(command);
+		free_double_ptr(command);
 	exit(e_value);
 }

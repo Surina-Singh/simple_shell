@@ -112,7 +112,7 @@ int cd_execute(list_t *env, char *current, char *dir, char *str, int num)
 	}
 	else
 	{
-		cantcd_cmd_to(str, num, env);
+		cant_cd_to(str, num, env);
 		free(current);
 		i = 2;
 	}
@@ -160,6 +160,6 @@ int cd_cmd(char **str, list_t *env, int num)
 	}
 	else
 		cd_only(env, current);
-	free_pointerx2(str);
+	free_double_ptr(str);
 	return (exit_stat);
 }

@@ -1,7 +1,6 @@
 #include "shell.h"
 /**
  * c_ignore - custom ignores spaces and newlines
- * (e.g. echo "ls\n ls" | ./a.out)
  * @str: envrionmental variables
  * Return: new string
  */
@@ -14,7 +13,6 @@ char *c_ignore(char *str)
 
 /**
  * non_interactive - handles when user pipes commands into shell via pipeline
- * (e.g. echo "ls/nls -al/n" | ./a.out)
  * @env: envrionmental variables
  */
 void non_interactive(list_t *env)
@@ -49,7 +47,7 @@ void non_interactive(list_t *env)
 		exit_stat = execve_cmd(token, env, command_line_no);
 		n++;
 	}
-	free_pointerx2(n_line);
+	free_double_ptr(n_line);
 	free_linked_list(env);
 	exit(exit_stat);
 }

@@ -26,7 +26,7 @@ int c_t_size(char *str, char delm)
  * @delm: delimeter
  * Return: an array of tokens
  */
-char **c_str_tok(char *str, char *delm)
+char **cstr_tok(char *str, char *delm)
 {
 	int buffsize = 0, p = 0, si = 0, i = 0, len = 0, se = 0;
 	char **toks = NULL, d_ch;

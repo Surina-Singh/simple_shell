@@ -25,12 +25,12 @@ char *which_cmd(char *str, list_t *env)
 		cat = strcat(cat, str);
 		if (access(cat, F_OK) == 0)
 		{
-			free_pointerx2(toks);
+			free_double_ptr(toks);
 			return (cat);
 		}
 		free(cat);
 		i++;
 	}
-	free_pointerx2(toks);
+	free_double_ptr(toks);
 	return (str);
 }

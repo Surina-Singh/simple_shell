@@ -6,7 +6,7 @@
  */
 void c_exit(char **str, list_t *env)
 {
-	free_pointerx2(str);
+	free_double_ptr(str);
 	free_linked_list(env);
 	_exit(0);
 }
@@ -36,7 +36,7 @@ int execve_cmd(char **s, list_t *env, int num)
 	if (access(holder, X_OK) != 0)
 	{
 		not_found(s[0], num, env);
-		free_pointerx2(s);
+		free_double_ptr(s);
 		return (127);
 	}
 	else
@@ -53,7 +53,7 @@ int execve_cmd(char **s, list_t *env, int num)
 		else
 		{
 			wait(&status);
-			free_pointerx2(s);
+			free_double_ptr(s);
 			if (t == 0)
 				free(holder);
 		}

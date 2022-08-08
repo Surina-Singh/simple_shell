@@ -26,7 +26,7 @@ list_t *env_list(char **env)
  */
 int _env(char **str, list_t *env)
 {
-	free_pointerx2(str);
+	free_double_ptr(str);
 	print_list(env);
 	return (0);
 }
