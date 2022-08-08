@@ -21,7 +21,7 @@ int c_t_size(char *str, char delm)
 }
 
 /**
- * c_str_tok - tokenizes a string even the continuous delim with empty string
+ * cstr_tok - tokenizes a string even the continuous delim with empty string
  * @str: user's command typed into shell
  * @delm: delimeter
  * Return: an array of tokens

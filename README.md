@@ -10,14 +10,64 @@ This is a simple UNIX command interpreter that replicates the **sh** program on 
 
 ---
 
-## Usage
-- Clone the repository: `git clone https://github.com/Surina-Singh/simple_shell.git`
-- Change directories into the repository: `cd simple_shell`
-- Compile: `gcc -Wall -Werror -Wextra -pedantic *.c -o hsh`
-- Run the shell in interactive mode: `./hsh`
-- Or run the shell in non-interactive mode: example `echo "Hello world!" | ./hsh`
-- To exit: press `Ctrl-D` or enter `exit`
+## How to use
+Clone the repository:
+```
+$ git clone https://github.com/Surina-Singh/simple_shell.git
+```
+Change directories into the repository:
+```sh
+cd simple_shell
+```
+Compile:
+```sh
+gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
+```
+Run the shell in interactive mode:
+```sh
+$./hsh
+```
+Or run the shell in non-interactive mode:
+```sh
+$ echo "Hello world!" | ./hsh
+```
+To exit:
+```sh
+press `Ctrl-D` or enter `exit`
+```
+---
 
+## Test Output Example
+The shell will function like this in interactive mode:
+```sh
+$ /bin/ls
+hsh shell.h shell.c
+```
+```sh
+$ pwd
+/simple_shell
+```
+```sh
+$ ls -l
+drwxrwxr-x 7 vagrant vagrant  4096 Apr  7 01:48 hsh
+-rw-rw-r-- 1 vagrant vagrant   148 Apr  7 00:00 shell.h
+-rwxrw-r-- 1 vagrant vagrant    28 Apr  7 15:35 shell.c
+```
+But also in non-interactive mode:
+```sh
+$ echo "/bin/ls" | ./hsh
+hsh main.c shell.c
+```
+```sh
+$ echo "pwd" | ./hsh
+/simple_shell
+```
+### To exit program in interactive mode:
+
+The output of this program when executed it look like:
+```sh
+exit
+```
 ---
 
 ## Resources
@@ -43,44 +93,8 @@ This is a simple UNIX command interpreter that replicates the **sh** program on 
 
 ---
 
-## Testing
-The shell will function like this in interactive mode:
-```
-$ ./hsh
-($) /bin/ls
-hsh main.c shell.c
-($)
-($) exit
-$
-```
-But also in non-interactive mode:
-```
-$ echo "/bin/ls" | ./hsh
-hsh main.c shell.c test_ls_2
-$
-$ cat test_ls_2
-/bin/ls
-/bin/ls
-$
-$ cat test_ls_2 | ./hsh
-hsh main.c shell.c test_ls_2
-hsh main.c shell.c test_ls_2
-$
-```
----
-
-# Tasks
-
-## Mandatory Tasks
-### 0. Betty would be proud
-### 1. Simple shell 0.1
-### 2. Simple shell 0.2
-### 3. Simple shell 0.3
-### 4. Simple shell 0.4
-### 5. Simple shell 1.0
-
-## Advanced Tasks
-###
-
 ## Manual Page
-### In order to access the manual page run the following command: man ./man_3_printf.
+### In order to access the manual page run the following command:
+```sh
+man ./man_3_printf.
+```
