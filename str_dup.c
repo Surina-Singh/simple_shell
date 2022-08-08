@@ -2,31 +2,25 @@
 /**
  * str_dup - returns a pointer to a newly allocated space in memory,
  * which contains a copy of the string given as a parameter
- * @str: string to duplicate
+ * @str: String to be duplicated
  * Return: pointer to duplicated string in allocated memory
  */
 char *str_dup(char *str)
 {
-	char *duplicate_str;
-	int i, len = 0;
+	unsigned int i, len;
+	char *duplicate;
 
 	if (str == NULL)
 		return (NULL);
 
-	while (*(str + len))
-		len++;
-	len++;
-
-	duplicate_str = malloc(sizeof(char) * len);
-	if (duplicate_str == NULL)
+	for (len = 0; str[len] != '\0'; len++)
+		;
+	duplicate = (char *) malloc(sizeof(char) * (len + 1));
+	if (duplicate == NULL)
 		return (NULL);
-
-	i = 0;
-	while (i < len)
+	for (i = 0; i <= len; i++)
 	{
-		*(duplicate_str + i) = *(str + i);
-		i++;
+		duplicate[i] = str[i];
 	}
-
-	return (duplicate_str);
+	return (duplicate);
 }
