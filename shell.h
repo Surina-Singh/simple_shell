@@ -37,6 +37,7 @@ char *str_dup(char *str);
 char *str_cp(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
 int cd_cmd(char **str, list_t *env, int num);
+void cantcd_cmd_to(char *str, int c_n, list_t *env);
 int built_in(char **token, list_t *env, int num, char **command);
 void non_interactive(list_t *env);
 char *which_cmd(char *str, list_t *env);
@@ -54,7 +55,6 @@ int _unsetenv(list_t **env, char **str);
 int _setenv(list_t **env, char **str);
 int find_env(list_t *env, char *str);
 void not_found(char *str, int num, list_t *env);
-void cantcd_cmd_to(char *str, int c_n, list_t *env);
 void illegal_number(char *str, int c_n, list_t *env);
 char *int2str(int num);
 

@@ -37,11 +37,11 @@ int _unsetenv(list_t **env, char **str)
 	if (str[1] == NULL)
 	{
 		write(STDOUT_FILENO, "Too few arguments\n", 18);
-		free_double_ptr(str);
+		free_pointerx2(str);
 		return (-1);
 	}
 	index = find_env(*env, str[1]);
-	free_double_ptr(str);
+	free_pointerx2(str);
 	if (index == -1)
 	{
 		write(STDOUT_FILENO, "Cannot find\n", 12);
@@ -71,12 +71,12 @@ int _setenv(list_t **env, char **str)
 	if (str[1] == NULL || str[2] == NULL)
 	{
 		write(STDOUT_FILENO, "Too few arguments\n", 18);
-		free_double_ptr(str);
+		free_pointerx2(str);
 		return (-1);
 	}
-	cat = _strdup(str[1]);
-	cat = _strcat(cat, "=");
-	cat = _strcat(cat, str[2]);
+	cat = strdup(str[1]);
+	cat = strcat(cat, "=");
+	cat = strcat(cat, str[2]);
 	index = find_env(*env, str[1]);
 	if (index == -1)
 	{
@@ -91,9 +91,9 @@ int _setenv(list_t **env, char **str)
 			j++;
 		}
 		free(holder->var);
-		holder->var = _strdup(cat);
+		holder->var = strdup(cat);
 	}
 	free(cat);
-	free_double_ptr(str);
+	free_pointerx2(str);
 	return (0);
 }

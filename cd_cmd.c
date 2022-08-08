@@ -23,7 +23,7 @@ char *c_strcat(char *dest, char *src)
 		total_len++;
 	}
 
-	dest = _realloc(dest, len, sizeof(char) * total_len + 1);
+	dest = memory_cmd(dest, len, sizeof(char) * total_len + 1);
 
 	j = 1;
 	while (src[j] != '\0')
@@ -50,9 +50,9 @@ int c_setenv(list_t **env, char *name, char *dir)
 	char *cat;
 	list_t *holder;
 
-	cat = _strdup(name);
-	cat = _strcat(cat, "=");
-	cat = _strcat(cat, dir);
+	cat = strdup(name);
+	cat = strcat(cat, "=");
+	cat = strcat(cat, dir);
 	index = find_env(*env, name);
 
 	holder = *env;
@@ -62,7 +62,7 @@ int c_setenv(list_t **env, char *name, char *dir)
 		j++;
 	}
 	free(holder->var);
-	holder->var = _strdup(cat);
+	holder->var = strdup(cat);
 	free(cat);
 	return (0);
 }
@@ -149,17 +149,17 @@ int cd_cmd(char **str, list_t *env, int num)
 			if (str[1][0] != '/')
 			{
 				dir = getcwd(dir, 0);
-				dir = _strcat(dir, "/");
-				dir = _strcat(dir, str[1]);
+				dir = strcat(dir, "/");
+				dir = strcat(dir, str[1]);
 			}
 			else
-				dir = _strdup(str[1]);
+				dir = strdup(str[1]);
 		}
 		exit_stat = cd_execute(env, current, dir, str[1], num);
 		free(dir);
 	}
 	else
 		cd_only(env, current);
-	free_double_ptr(str);
+	free_pointerx2(str);
 	return (exit_stat);
 }

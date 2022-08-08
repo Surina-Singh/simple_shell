@@ -28,14 +28,14 @@ size_t get_buffer(char **str)
 		{
 			i++;
 			*str = malloc(sizeof(char) * i);
-			*str = _strcpy(*str, buff);
+			*str = strcpy(*str, buff);
 			size = i;
 			t = 1;
 		}
 		else
 		{
 			size += i;
-			*str = _strcat(*str, buff);
+			*str = strcat(*str, buff);
 		}
 	}
 	return (size);

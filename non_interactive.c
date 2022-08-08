@@ -23,7 +23,7 @@ void non_interactive(list_t *env)
 	int command_line_no = 0, exit_stat = 0;
 	char *command = NULL, *n_command = NULL, **n_line, **token;
 
-	i = get_line(&command);
+	i = get_buffer(&command);
 	if (i == 0)
 	{
 		free(command);
@@ -31,7 +31,7 @@ void non_interactive(list_t *env)
 	}
 	n_command = command;
 	command = c_ignore(command);
-	n_line = _str_tok(command, "\n");
+	n_line = cstr_tok(command, "\n");
 	if (n_command != NULL)
 		free(n_command);
 	n = 0;
@@ -39,17 +39,17 @@ void non_interactive(list_t *env)
 	{
 		command_line_no++;
 		token = NULL;
-		token = _str_tok(n_line[n], " ");
+		token = cstr_tok(n_line[n], " ");
 		exit_stat = built_in(token, env, command_line_no, n_line);
 		if (exit_stat)
 		{
 			n++;
 			continue;
 		}
-		exit_stat = _execve(token, env, command_line_no);
+		exit_stat = execve_cmd(token, env, command_line_no);
 		n++;
 	}
-	free_double_ptr(n_line);
+	free_pointerx2(n_line);
 	free_linked_list(env);
 	exit(exit_stat);
 }

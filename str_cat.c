@@ -23,7 +23,7 @@ char *str_cat(char *dest, char *src)
 				total_len++;
 		}
 
-		dest = _realloc(dest, len, sizeof(char) * total_len + 1);
+		dest = memory_cmd(dest, len, sizeof(char) * total_len + 1);
 
 			while (src[j] != '\0')
 		{

@@ -11,7 +11,7 @@ char *which_cmd(char *str, list_t *env)
 	int i = 0;
 
 	pth = get_env("PATH", env);
-	toks = c_str_tok(pth, ":");
+	toks = cstr_tok(pth, ":");
 	free(pth);
 
 	i = 0;
@@ -20,17 +20,17 @@ char *which_cmd(char *str, list_t *env)
 		if (toks[i][0] == '\0')
 			cat = getcwd(cat, 0);
 		else
-			cat = _strdup(toks[i]);
-		cat = _strcat(cat, "/");
-		cat = _strcat(cat, str);
+			cat = strdup(toks[i]);
+		cat = strcat(cat, "/");
+		cat = strcat(cat, str);
 		if (access(cat, F_OK) == 0)
 		{
-			free_double_ptr(toks);
+			free_pointerx2(toks);
 			return (cat);
 		}
 		free(cat);
 		i++;
 	}
-	free_double_ptr(toks);
+	free_pointerx2(toks);
 	return (str);
 }

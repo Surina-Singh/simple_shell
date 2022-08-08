@@ -11,7 +11,7 @@ int main(int ac, char **av, char **env)
 	(void)ac;
 	(void)av;
 
-	prompt(env);
+	prompt_cmd(env);
 
 	return (0);
 }

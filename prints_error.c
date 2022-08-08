@@ -16,7 +16,7 @@ void not_found(char *str, int c_n, list_t *env)
 	write(STDOUT_FILENO, shell, count);
 	free(shell);
 	write(STDOUT_FILENO, ": ", 2);
-	num = int_to_string(c_n);
+	num = int2str(c_n);
 	count = 0;
 	while (num[count] != '\0')
 		count++;
@@ -48,7 +48,7 @@ void cant_cd_to(char *str, int c_n, list_t *env)
 	write(STDOUT_FILENO, shell, count);
 	free(shell);
 	write(STDOUT_FILENO, ": ", 2);
-	num = int_to_string(c_n);
+	num = int2str(c_n);
 	count = 0;
 	while (num[count] != '\0')
 		count++;
@@ -80,7 +80,7 @@ void illegal_number(char *str, int c_n, list_t *env)
 	write(STDOUT_FILENO, shell, count);
 	free(shell);
 	write(STDOUT_FILENO, ": ", 2);
-	num = int_to_string(c_n);
+	num = int2str(c_n);
 	count = 0;
 	while (num[count] != '\0')
 		count++;
