@@ -78,4 +78,6 @@ void print_error(vars_t *vars, char *msg);
 void _puts2(char *str);
 char *_uitoa(unsigned int count);
 
+char *list_t(char **env);
+
 #endif
