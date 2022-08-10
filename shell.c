@@ -45,9 +45,7 @@ int main(int ac __attribute__((unused)), char *av[], char *envp[])
 				perror("execve"), exit(EXIT_FAILURE);
 				break;
 			}
-		}
-		wait(&status), free(av);
-	}
-	free(buffer);
+		} wait(&status), free(av);
+	} free(buffer);
 	return (0);
 }
