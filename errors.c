@@ -1,9 +1,8 @@
 #include "shell.h"
-
 /**
- * print_error - prints error messages
- * @vars: pointer to structure of variables
- * @msg: message
+ * print_error - Prints an error messages
+ * @vars: Pointer to struct of variables
+ * @msg: Error message
  *
  * Return: void
  */
@@ -18,19 +17,21 @@ void print_error(vars_t *vars, char *msg)
 	free(count);
 	_puts2(": ");
 	_puts2(vars->av[0]);
+
 	if (msg)
 	{
 		_puts2(msg);
 	}
+
 	else
 		perror("");
 }
 
 /**
- * _puts2 - prints a string to standard error
- * @str: string
+ * _puts2 - Prints a string to standard error
+ * @str: String
  *
- * Return: void
+ * Return: Void
  */
 void _puts2(char *str)
 {
@@ -38,6 +39,7 @@ void _puts2(char *str)
 
 	num = _strlen(str);
 	len = write(STDERR_FILENO, str, num);
+
 	if (len != num)
 	{
 		perror("Fatal Error");
@@ -46,10 +48,10 @@ void _puts2(char *str)
 }
 
 /**
- * _uitoa - converts an unsigned integer to string
- * @count: unsigned integer
+ * _uitoa - Converts an unsigned integer to string
+ * @count: Unsigned integer
  *
- * Return: pointer to the converted string
+ * Return: Pointer to the converted string
  */
 char *_uitoa(unsigned int count)
 {
@@ -57,19 +59,24 @@ char *_uitoa(unsigned int count)
 	unsigned int tmp, digits;
 
 	tmp = count;
+
 	for (digits = 0; tmp != 0; digits++)
 		tmp /= 10;
 	numstr = malloc(sizeof(char) * (digits + 1));
+
 	if (numstr == NULL)
 	{
 		perror("Fatal Error1");
 		exit(127);
 	}
+
 	numstr[digits] = '\0';
+
 	for (--digits; count; --digits)
 	{
 		numstr[digits] = (count % 10) + '0';
 		count /= 10;
 	}
+
 	return (numstr);
 }

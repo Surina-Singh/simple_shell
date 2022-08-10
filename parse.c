@@ -1,12 +1,10 @@
 #include "shell.h"
-
-
 /**
- * tokenize - tokenizes buffer
- * @buffer: buffer
- * @delimiter: delimiter
+ * tokenize - Tokenizes buffer
+ * @buffer: Buffer
+ * @delimiter: Delimiter
  *
- * Return: pointer to an array of pointers to the tokens
+ * Return: Pointer to an array of pointers to the tokens
  */
 char **tokenize(char *buffer, char *delimiter)
 {
@@ -15,12 +13,15 @@ char **tokenize(char *buffer, char *delimiter)
 
 	if (buffer == NULL)
 		return (NULL);
+
 	tokens = malloc(sizeof(char *) * mcount);
+
 	if (tokens == NULL)
 	{
 		perror("Fatal Error");
 		return (NULL);
 	}
+
 	while ((tokens[i] = new_strtok(buffer, delimiter)) != NULL)
 	{
 		i++;
@@ -35,5 +36,6 @@ char **tokenize(char *buffer, char *delimiter)
 		}
 		buffer = NULL;
 	}
+
 	return (tokens);
 }

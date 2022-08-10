@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * make_env - Uses a repica of environment passed to main,
  *            to create the shell environment.
@@ -16,14 +15,18 @@ char **make_env(char **env)
 	for (x = 0; env[x] != NULL; x++)
 		;
 	newenv = malloc(sizeof(char *) * (x + 1));
+
 	if (newenv == NULL)
 	{
 		perror("Fatal Error");
 		exit(1);
 	}
+
 	for (x = 0; env[x] != NULL; x++)
 		newenv[x] = _strdup(env[x]);
+
 	newenv[x] = NULL;
+
 	return (newenv);
 }
 
@@ -40,5 +43,6 @@ void free_env(char **env)
 
 	for (; env[x] != NULL; x++)
 		free(env[x]);
+
 	free(env);
 }

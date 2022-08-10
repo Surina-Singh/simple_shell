@@ -1,9 +1,8 @@
 #include "shell.h"
-
 /**
- * check_match - checks for matches of character to string
- * @c: character
- * @str: string
+ * check_match - Checks for matches of character to string
+ * @c: Character
+ * @str: String
  *
  * Return: 1 if match, 0 if not
  */
@@ -17,15 +16,16 @@ unsigned int check_match(char c, const char *str)
 		if (c == str[i])
 			return (1);
 	}
+
 	return (0);
 }
 
 /**
- * new_strtok - custom strtok
- * @str: string
- * @delim: delimiter
+ * new_strtok - Customised strtok
+ * @str: String
+ * @delim: Delimiter
  *
- * Return: pointer to the next token or NULL
+ * Return: Pointer to the next token or NULL
  */
 char *new_strtok(char *str, const char *delim)
 {
@@ -36,8 +36,10 @@ char *new_strtok(char *str, const char *delim)
 	if (str != NULL)
 		next_token = str;
 	token_start = next_token;
+
 	if (token_start == NULL)
 		return (NULL);
+
 	for (i = 0; next_token[i] != '\0'; i++)
 	{
 		if (check_match(next_token[i], delim) == 0)
@@ -50,6 +52,7 @@ char *new_strtok(char *str, const char *delim)
 	}
 	token_start = next_token + i;
 	next_token = token_start;
+
 	for (i = 0; next_token[i] != '\0'; i++)
 	{
 		if (check_match(next_token[i], delim) == 1)
@@ -57,6 +60,7 @@ char *new_strtok(char *str, const char *delim)
 	}
 	if (next_token[i] == '\0')
 		next_token = NULL;
+
 	else
 	{
 		next_token[i] = '\0';

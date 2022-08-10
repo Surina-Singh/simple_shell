@@ -94,12 +94,16 @@ void new_setenv(vars_t *vars)
 		vars->status = 2;
 		return;
 	}
+
 	keys = find_key(vars->env, vars->av[1]);
+
 	if (keys == NULL)
 		add_key(vars);
+
 	else
 	{
 		var = add_value(vars->av[1], vars->av[2]);
+
 		if (var == NULL)
 		{
 			print_error(vars, NULL);
@@ -109,9 +113,11 @@ void new_setenv(vars_t *vars)
 			free_env(vars->env);
 			exit(127);
 		}
+
 		free(*keys);
 		*keys = var;
 	}
+
 	vars->status = 0;
 }
 

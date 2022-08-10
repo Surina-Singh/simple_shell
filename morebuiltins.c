@@ -1,29 +1,31 @@
 #include "shell.h"
-
 /**
- * add_key - create a new environment
- * @vars: pointer to structure of variables
+ * add_key - Create a new environment
+ * @vars: Pointer to structure of variables
  *
- * Return: void
+ * Return: Void
  */
 void add_key(vars_t *vars)
 {
-	unsigned int i;
+	unsigned int x;
 	char **newenv;
 
-	for (i = 0; vars->env[i] != NULL; i++)
+	for (x = 0; vars->env[x] != NULL; x++)
 		;
-	newenv = malloc(sizeof(char *) * (i + 2));
+	newenv = malloc(sizeof(char *) * (x + 2));
+
 	if (newenv == NULL)
 	{
 		print_error(vars, NULL);
 		vars->status = 127;
 		new_exit(vars);
 	}
-	for (i = 0; vars->env[i] != NULL; i++)
-		newenv[i] = vars->env[i];
-	newenv[i] = add_value(vars->av[1], vars->av[2]);
-	if (newenv[i] == NULL)
+
+	for (x = 0; vars->env[x] != NULL; x++)
+		newenv[x] = vars->env[x];
+	newenv[x] = add_value(vars->av[1], vars->av[2]);
+
+	if (newenv[x] == NULL)
 	{
 		print_error(vars, NULL);
 		free(vars->buffer);
@@ -33,65 +35,72 @@ void add_key(vars_t *vars)
 		free(newenv);
 		exit(127);
 	}
-	newenv[i + 1] = NULL;
+	newenv[x + 1] = NULL;
 	free(vars->env);
 	vars->env = newenv;
 }
 
 /**
- * find_key - finds an environment
- * @env: environment
- * @key:key to find environment
+ * find_key - Finds an environment
+ * @env: Environment
+ * @key: Key to find environment
  *
- * Return: pointer to address of the environment
+ * Return: Pointer to address of the environment
  */
 char **find_key(char **env, char *key)
 {
-	unsigned int i, j, len;
+	unsigned int x, y, len;
 
 	len = _strlen(key);
-	for (i = 0; env[i] != NULL; i++)
+
+	for (x = 0; env[x] != NULL; x++)
 	{
-		for (j = 0; j < len; j++)
-			if (key[j] != env[i][j])
+		for (y = 0; y < len; y++)
+			if (key[y] != env[x][y])
 				break;
-		if (j == len && env[i][j] == '=')
-			return (&env[i]);
+
+		if (y == len && env[x][y] == '=')
+			return (&env[x]);
 	}
+
 	return (NULL);
 }
 
 /**
- * add_value - create a new environment string variable
- * @key: environment name
- * @value: environment value
+ * add_value - Create a new environment string variable
+ * @key: Environment name
+ * @value: Environment value
  *
- * Return: pointer to the new string;
+ * Return: Pointer to the new string;
  */
 char *add_value(char *key, char *value)
 {
-	unsigned int len1, len2, i, j;
+	unsigned int len1, len2, x, y;
 	char *new;
 
 	len1 = _strlen(key);
 	len2 = _strlen(value);
 	new = malloc(sizeof(char) * (len1 + len2 + 2));
+
 	if (new == NULL)
 		return (NULL);
-	for (i = 0; key[i] != '\0'; i++)
-		new[i] = key[i];
-	new[i] = '=';
-	for (j = 0; value[j] != '\0'; j++)
-		new[i + 1 + j] = value[j];
-	new[i + 1 + j] = '\0';
+
+	for (x = 0; key[x] != '\0'; x++)
+		new[x] = key[x];
+
+	new[x] = '=';
+
+	for (y = 0; value[y] != '\0'; y++)
+		new[x + 1 + y] = value[y];
+	new[x + 1 + y] = '\0';
+
 	return (new);
 }
-
 /**
- * _atoi - string to integer converter
- * @str: string
+ * _atoi - String to integer converter
+ * @str: String
  *
- * Return: the integer value, or -1 if an error occurs
+ * Return: The integer value, or -1 if an error occurs
  */
 int _atoi(char *str)
 {
@@ -99,20 +108,27 @@ int _atoi(char *str)
 	int num = 0, num_test;
 
 	num_test = INT_MAX;
+
 	for (digits = 0; num_test != 0; digits++)
 		num_test /= 10;
+
 	for (i = 0; str[i] != '\0' && i < digits; i++)
 	{
 		num *= 10;
+
 		if (str[i] < '0' || str[i] > '9')
 			return (-1);
+
 		if ((i == digits - 1) && (str[i] - '0' > INT_MAX % 10))
 			return (-1);
 		num += str[i] - '0';
+
 		if ((i == digits - 2) && (str[i + 1] != '\0') && (num > INT_MAX / 10))
 			return (-1);
 	}
+
 	if (i > digits)
 		return (-1);
+
 	return (num);
 }
