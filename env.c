@@ -1,27 +1,43 @@
 #include "shell.h"
 
 /**
- * print_error - prints error messages
- * @vars: pointer to structure of variables
- * @msg: message
+ * make_env - makes the shell environment
+ * @env: environment
+ *
+ * Return: pointer to the new environment
+ */
+
+char **make_env(char **env)
+{
+	char **newenv = NULL;
+	size_t i;
+
+	for (i = 0; env[i] != NULL; i++)
+		;
+	newenv = malloc(sizeof(char *) * (i + 1));
+	if (newenv == NULL)
+	{
+		perror("Fatal Error");
+		exit(1);
+	}
+	for (i = 0; env[i] != NULL; i++)
+		newenv[i] = _strdup(env[i]);
+	newenv[i] = NULL;
+	return (newenv);
+}
+
+/**
+ * free_env - frees the shell environment
+ * @env: environment
  *
  * Return: void
  */
-void print_error(vars_t *vars, char *msg)
-{
-	char *count;
 
-	_puts2(vars->argv[0]);
-	_puts2(": ");
-	count = _uitoa(vars->count);
-	_puts2(count);
-	free(count);
-	_puts2(": ");
-	_puts2(vars->av[0]);
-	if (msg)
-	{
-		_puts2(msg);
-	}
-	else
-		perror("");
+void free_env(char **env)
+{
+	unsigned int i;
+
+	for (i = 0; env[i] != NULL; i++)
+		free(env[i]);
+	free(env);
 }
