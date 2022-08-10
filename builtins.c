@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- * check_for_builtins - builtin checker
- * @vars: variables
+ * check_for_builtins - Builtin checker
+ * @vars: Variables
  *
  * Return: pointer to the function or NULL
  */
@@ -28,10 +28,10 @@ void (*check_for_builtins(vars_t *vars))(vars_t *vars)
 }
 
 /**
- * new_exit - exit program
- * @vars: variables
+ * new_exit - Exit program
+ * @vars: Variables
  *
- * Return: void
+ * Return: Void
  */
 void new_exit(vars_t *vars)
 {
@@ -60,32 +60,32 @@ void new_exit(vars_t *vars)
 }
 
 /**
- * _env - print the current working environment
- * @vars: variable structure
+ * _env - Print the current working environment
+ * @vars: Variable structure
  *
- * Return: void.
+ * Return: Void.
  */
 void _env(vars_t *vars)
 {
-	unsigned int i;
+	unsigned int x;
 
-	for (i = 0; vars->env[i]; i++)
+	for (x = 0; vars->env[x]; x++)
 	{
-		_puts(vars->env[i]);
+		_puts(vars->env[x]);
 		_puts("\n");
 	}
 	vars->status = 0;
 }
 
 /**
- * new_setenv - creates/edits environment variable
- * @vars: pointer to structure of variables
+ * new_setenv - Creates or edits environment variable
+ * @vars: Pointer to structure of variables
  *
  * Return: void
  */
 void new_setenv(vars_t *vars)
 {
-	char **key;
+	char **keys;
 	char *var;
 
 	if (vars->av[1] == NULL || vars->av[2] == NULL)
@@ -94,8 +94,8 @@ void new_setenv(vars_t *vars)
 		vars->status = 2;
 		return;
 	}
-	key = find_key(vars->env, vars->av[1]);
-	if (key == NULL)
+	keys = find_key(vars->env, vars->av[1]);
+	if (keys == NULL)
 		add_key(vars);
 	else
 	{
@@ -109,21 +109,21 @@ void new_setenv(vars_t *vars)
 			free_env(vars->env);
 			exit(127);
 		}
-		free(*key);
-		*key = var;
+		free(*keys);
+		*keys = var;
 	}
 	vars->status = 0;
 }
 
 /**
- * new_unsetenv - removes an environment variable
- * @vars: pointer to a structure of variables
+ * new_unsetenv - Removes an environment variable
+ * @vars: Pointer to a structure of variables
  *
- * Return: void
+ * Return: Void
  */
 void new_unsetenv(vars_t *vars)
 {
-	char **key, **newenv;
+	char **keys, **newenv;
 
 	unsigned int i, j;
 
@@ -133,8 +133,8 @@ void new_unsetenv(vars_t *vars)
 		vars->status = 2;
 		return;
 	}
-	key = find_key(vars->env, vars->av[1]);
-	if (key == NULL)
+	keys = find_key(vars->env, vars->av[1]);
+	if (keys == NULL)
 	{
 		print_error(vars, ": No variable to unset");
 		return;
@@ -148,12 +148,12 @@ void new_unsetenv(vars_t *vars)
 		vars->status = 127;
 		new_exit(vars);
 	}
-	for (i = 0; vars->env[i] != *key; i++)
+	for (i = 0; vars->env[i] != *keys; i++)
 		newenv[i] = vars->env[i];
 	for (j = i + 1; vars->env[j] != NULL; j++, i++)
 		newenv[i] = vars->env[j];
 	newenv[i] = NULL;
-	free(*key);
+	free(*keys);
 	free(vars->env);
 	vars->env = newenv;
 	vars->status = 0;
