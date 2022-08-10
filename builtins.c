@@ -78,7 +78,7 @@ void _env(vars_t *vars)
 }
 
 /**
- * new_setenv - creates a new working environment variable,or edit an existing variable
+ * new_setenv - creates/edits environment variable
  * @vars: pointer to structure of variables
  *
  * Return: void
