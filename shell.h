@@ -13,12 +13,12 @@
 
 
 /**
- * struct variables - variables
+ * struct variables - Structure variables
  * @av: command line arguments
- * @buffer: buffer of command
+ * @buffer: buffer
  * @env: environment variables
- * @count: count of commands entered
- * @argv: arguments at opening of shell
+ * @count: command count
+ * @argv: shell opening arguments
  * @status: exit status
  * @commands: double pointer to commands
  */
@@ -34,9 +34,9 @@ typedef struct variables
 } vars_t;
 
 /**
- * struct builtins - struct for the builtin functions
- * @name: name of builtin command
- * @f: function for corresponding builtin
+ * struct builtins - builtin function structure
+ * @name: builtin command name
+ * @f: corresponding builtin function
  */
 typedef struct builtins
 {
