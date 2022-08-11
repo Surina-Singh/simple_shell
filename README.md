@@ -83,5 +83,5 @@ man ./man_3_printf.
 
 ## **Authors:**
 
-*Surina Singh and Rebekah Cupido*
+### *Surina Singh and Rebekah Cupido*
 ---
