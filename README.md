@@ -1,7 +1,4 @@
-# A Simple Shell Recreation
-----
-
-### **Authors:** *Surina Singh and Rebekah Cupido*
+# **A Simple Shell Recreation**
 
 ## Introduction
 
@@ -82,3 +79,9 @@ exit
 ```sh
 man ./man_3_printf.
 ```
+---
+
+#### **Authors:**
+
+`*Surina Singh and Rebekah Cupido*`
+---
