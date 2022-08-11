@@ -1,36 +1,37 @@
 #include "shell.h"
 
-/* global variable for ^C handling */
 unsigned int sig_flag;
 
 /**
- * sig_handler - handles ^C signal interupt
- * @uuv: unused variable
+ * sig_handler - Handles ^C signal interupt
+ * @uuv: Unused variable
  *
- * Return: void
+ * Return: Void
  */
 static void sig_handler(int uuv)
 {
 	(void) uuv;
+
 	if (sig_flag == 0)
 		_puts("\n$ ");
+
 	else
 		_puts("\n");
 }
 
 /**
- * main - shell main function
- * @argc: argument numbers passed to main
- * @argv: argument arrays passed to main
- * @environment: environment variables
+ * main - Shell main function
+ * @argc: Argument numbers passed to main
+ * @argv: Argument arrays passed to main
+ * @environment: Environment variables
  *
  * Return: 0 or exit status, or ?
  */
 int main(int argc __attribute__((unused)), char **argv, char **environment)
 {
-	size_t len_buffer = 0;
-	unsigned int is_pipe = 0, i;
 	vars_t vars = {NULL, NULL, NULL, 0, NULL, 0, NULL};
+	unsigned int is_pipe = 0;
+	size_t leni_buffer = 0;
 
 	vars.argv = argv;
 	vars.env = make_env(environment);

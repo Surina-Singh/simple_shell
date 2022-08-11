@@ -5,12 +5,11 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include <sys/types.h>
+#include <signal.h>
+#include <limits.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
-#include <limits.h>
-#include <signal.h>
-
+#include <sys/types.h>
 
 /**
  * struct variables - Structure variables
