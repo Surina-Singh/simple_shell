@@ -30,8 +30,8 @@ static void sig_handler(int uuv)
 int main(int argc __attribute__((unused)), char **argv, char **environment)
 {
 	vars_t vars = {NULL, NULL, NULL, 0, NULL, 0, NULL};
-	unsigned int is_pipe = 0;
-	size_t leni_buffer = 0;
+	unsigned int is_pipe = 0, i;
+	size_t len_buffer = 0;
 
 	vars.argv = argv;
 	vars.env = make_env(environment);
